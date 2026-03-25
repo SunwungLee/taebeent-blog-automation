@@ -1,5 +1,5 @@
 import feedparser
-from .google_sheets import add_new_topic
+from ..integrations.google_sheets import add_new_topic
 
 def get_google_news_trends(region='KR'):
     """

@@ -1,5 +1,5 @@
 from google import genai
-from .config import get_config
+from src.config import get_config
 
 def list_available_models():
     api_key = get_config("GEMINI_API_KEY")

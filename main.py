@@ -4,11 +4,11 @@ from dotenv import load_dotenv
 # Load env variables before importing local modules
 load_dotenv()
 
-from src.google_sheets import init_sheet_headers, get_pending_topics, get_drafted_topics, get_approved_topics
-from src.trend_analyzer import analyze_and_store_trends
-from src.content_writer import process_pending_topics
-from src.editor import process_drafted_topics
-from src.publisher import process_approved_topics
+from src.integrations.google_sheets import init_sheet_headers, get_pending_topics, get_drafted_topics, get_approved_topics
+from src.core.trend_analyzer import analyze_and_store_trends
+from src.core.content_writer import process_pending_topics
+from src.core.editor import process_drafted_topics
+from src.core.publisher import process_approved_topics
 
 def main():
     print("==========================================")

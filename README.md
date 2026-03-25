@@ -26,9 +26,16 @@ python -m pip install -r requirements.txt
 - **BLOGGER_BLOG_ID**: 본인의 Blogger 블로그 ID
 
 ### 3. 인증 파일 준비
-- **service_account.json**: 구글 시트 API용 서비스 계정 키 파일을 폴더에 넣고, 시트를 해당 이메일에 공유해 주세요.
+- **credentials/service_account.json**: 구글 시트 API용 서비스 계정 키 파일을 `credentials/` 폴더에 넣고, 시트를 해당 이메일에 공유해 주세요.
 
-## 📂 실행 방법
+## 📂 폴더 구조
+- `main.py`: 메인 실행 스크립트
+- `src/core/`: 블로그 생성 및 발행 핵심 로직
+- `src/integrations/`: 구글 시트 등 외부 서비스 연동
+- `credentials/`: API 키 및 인증 파일 보관 (보안 주의)
+- `scripts/`: 기타 유틸리티 스크립트
+
+## 🚀 실행 방법
 
 메인 스크립트를 실행하면 전체 프로세스가 순차적으로 진행됩니다.
 ```bash

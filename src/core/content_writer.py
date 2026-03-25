@@ -1,7 +1,7 @@
 import time
 from openai import OpenAI
-from .config import get_config
-from .google_sheets import update_topic_status, STATUS_DRAFTED
+from ..config import get_config
+from ..integrations.google_sheets import update_topic_status, STATUS_DRAFTED
 
 def get_client():
     api_key = get_config("OPENAI_API_KEY")

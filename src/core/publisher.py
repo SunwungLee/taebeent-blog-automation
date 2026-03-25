@@ -4,8 +4,8 @@ from googleapiclient.discovery import build
 from google.oauth2.credentials import Credentials
 from google_auth_oauthlib.flow import InstalledAppFlow
 from google.auth.transport.requests import Request
-from .config import get_config
-from .google_sheets import update_topic_status, STATUS_PUBLISHED
+from ..config import get_config
+from ..integrations.google_sheets import update_topic_status, STATUS_PUBLISHED
 
 SCOPES = ['https://www.googleapis.com/auth/blogger']
 

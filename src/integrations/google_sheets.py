@@ -1,6 +1,6 @@
 import gspread
 from oauth2client.service_account import ServiceAccountCredentials
-from .config import get_config
+from ..config import get_config
 
 # Constants for worksheet columns
 COL_TOPIC = 1
