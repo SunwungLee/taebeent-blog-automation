@@ -80,15 +80,31 @@ def get_topics_by_status(status):
         return []
         
     try:
-        records = sheet.get_all_records()
+        all_values = sheet.get_all_values()
+        if len(all_values) < 2:
+            return []
+            
+        headers = all_values[0]
+        rows = all_values[1:]
+        
+        # Find column indices (1-indexed in sheet, 0-indexed in list)
+        try:
+            status_idx = headers.index("Status")
+            topic_idx = headers.index("Topic")
+            content_idx = headers.index("Content/Draft")
+            url_idx = headers.index("URL")
+        except ValueError as e:
+            print(f"Missing expected header: {e}")
+            return []
+            
         topics = []
-        for idx, row in enumerate(records):
-            if row.get('Status') == status:
+        for idx, row in enumerate(rows):
+            if len(row) > status_idx and row[status_idx] == status:
                 topics.append({
                     "row_num": idx + 2, 
-                    "topic": row.get('Topic'),
-                    "content": row.get('Content/Draft'),
-                    "url": row.get('URL')
+                    "topic": row[topic_idx] if len(row) > topic_idx else "",
+                    "content": row[content_idx] if len(row) > content_idx else "",
+                    "url": row[url_idx] if len(row) > url_idx else ""
                 })
         return topics
     except Exception as e:
